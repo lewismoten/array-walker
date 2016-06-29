@@ -1,0 +1,40 @@
+{
+  "name": "array-walker",
+  "version": "1.0.0",
+  "description": "Multi-dimensional array walker with observation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewismoten/array-walker.git"
+  },
+  "keywords": [
+    "array",
+    "nested array",
+    "child arrays",
+    "list",
+    "collection",
+    "map",
+    "mapper",
+    "mappers",
+    "foreach",
+    "each",
+    "multi-dimensional",
+    "1d",
+    "2d",
+    "3d",
+    "4d",
+    "5d",
+    "nth-dimension",
+    "callback",
+    "array.map"
+  ],
+  "author": "Lewis Edward Moten III",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lewismoten/array-walker/issues"
+  },
+  "homepage": "https://github.com/lewismoten/array-walker#readme"
+}
