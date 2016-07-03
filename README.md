@@ -28,6 +28,15 @@ walker(
 // b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
 // c, 0, 0, 0, 0, 0, 1
 
+
+// With context
+walker(['a', 'b'], callbackWithContext, {example: "The Answer"});
+// The Answer, a, 0
+// The Answer, b, 1
+
+function callbackWithContext(value, key) {
+  console.log(this.example, value, key);
+}
 ```
 ## Installation
 ```
@@ -37,11 +46,12 @@ $ npm install array-walker
 ```javascript
 var walker = require('array-walker');
 ```
-### walker(items, observationCallback, ...lineage)
+### walker(items, observationCallback, context, ...lineage)
 | Type | Data Type | Name | Description |
 | --- | --- | --- | --- |
 | parameter | \*[] | items | The array to walk. |
 | parameter | function | observationCallback | The function to call when a non-array value is found. |
+| parameter | * | The context passed to the callback |
 | parameter | ...number | [lineage] | The parent indexes. |
 | returns | undefined | n/a | n/a |
 
@@ -51,6 +61,7 @@ The observation callback is fired when a non-array value is found.
 
 | Type | Data Type | Name | Description |
 | --- | --- | --- | --- |
+| this | * | this | The context passed to the walker |
 | parameter | !\*[] | value | The value that was discovered. |
 | parameter | ...number | lineage | The indexes in each dimension of the array. |
 | returns | undefined | n/a | n/a |

@@ -4,17 +4,17 @@
 
   module.exports = arrayWalker;
 
-  function arrayWalker(items, observationCallback, ...lineage) {
+  function arrayWalker(items, observationCallback, context, ...lineage) {
 
       items.forEach((value, key) => {
 
         if (Array.isArray(value)) {
 
-          arrayWalker(value, observationCallback, ...lineage, key);
+          arrayWalker(value, observationCallback, context, ...lineage, key);
 
         } else {
 
-          observationCallback(value, ...lineage, key);
+          observationCallback.call(context, value, ...lineage, key);
 
         }
 

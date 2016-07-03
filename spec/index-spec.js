@@ -147,14 +147,33 @@
     describe('forced lineage', () => {
 
       let items = ['t'],
-        callback = jasmine.createSpy('callback');
+        callback = jasmine.createSpy('callback'),
+        context;
 
-      target(items, callback, 1, 2, 'three');
+      target(items, callback, context, 1, 2, 'three');
 
       it('executes callback for each item', () => {
 
         expect(callback).toHaveBeenCalledWith('t', 1, 2, 'three', 0);
         expect(callback.calls.length).toBe(1);
+
+      });
+
+    });
+
+    describe('callbacks with context', () => {
+
+      let items = ['t'],
+        callback = jasmine.createSpy('callback'),
+        context = {
+          testing: 'the context'
+        };
+
+      target(items, callback, context);
+
+      it('provides context', () => {
+
+        expect(callback.calls[0].object).toBe(context);
 
       });
 
